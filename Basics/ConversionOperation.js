@@ -63,3 +63,35 @@ c) undefined => false
 d) null => false
 */
 
+//                                 **************************************  Operations *********************************************
+
+// console.log(3+3);
+// console.log(3-3);
+// console.log(3**3);
+// console.log(3/3);
+// console.log(3%3);
+// console.log(3*3);
+
+
+
+console.table([(3+"3"),("3"+ 5),(3+3+2+"7"),("7"+8+9+0),(null+2),(null-2),(9+null),("harsh"+null),(null+3+67+"harsh"),(undefined+89+"harsh"),("harsh890"+2345+undefined),("harsh890"+undefined)])
+/*
+┌─────────┬─────────────────────────┐
+│ (index) │ Values                  │
+├─────────┼─────────────────────────┤
+│ 0       │ '33'                    │
+│ 1       │ '35'                    │
+│ 2       │ '87'                    │
+│ 3       │ '7890'                  │
+│ 4       │ 2                       │
+│ 5       │ -2                      │
+│ 6       │ 9                       │
+│ 7       │ 'harshnull'             │
+│ 8       │ '70harsh'               │
+│ 9       │ 'NaNharsh'              │
+│ 10      │ 'harsh8902345undefined' │
+│ 11      │ 'harsh890undefined'     │
+└─────────┴─────────────────────────┘
+
+
+*/

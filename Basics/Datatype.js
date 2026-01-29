@@ -5,7 +5,7 @@
 // let public = 5; // Error
 
 
-// 1. Primitive Datatypes
+// 1. Primitive Datatypes  (Stack storage for copying the value)
 
 let name="harsh";
 let age=28;
@@ -41,9 +41,9 @@ console.table([name,age,isLoggedin,city,state]);
 
 */
 
-/* 2. Non-Primtive Datatypes */
+/* 2. Non-Primtive Datatypes (Heap Storage For referencing the value) */
 
-// Object And Symbol  And Arrays
+// Object And Arrays and Functions
 
 let Car = {
     Price:26,
@@ -52,6 +52,11 @@ let Car = {
 };
 
 let colors = ["red", "green", "blue"];
+
+const myfunction = function(){
+  console.log(harsh);
+  
+}
 
 
 

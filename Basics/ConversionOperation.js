@@ -74,7 +74,7 @@ d) null => false
 
 
 
-console.table([(3+"3"),("3"+ 5),(3+3+2+"7"),("7"+8+9+0),(null+2),(null-2),(9+null),("harsh"+null),(null+3+67+"harsh"),(undefined+89+"harsh"),("harsh890"+2345+undefined),("harsh890"+undefined)])
+console.table([(2+"3"),("3"+ 5),(3+3+2+"7"),("7"+8+9+0),(null+2),(null-2),(9+null),("harsh"+null),(null+3+67+"harsh"),(undefined+89+"harsh"),("harsh890"+2345+undefined),("harsh890"+undefined)])
 /*
 ┌─────────┬─────────────────────────┐
 │ (index) │ Values                  │

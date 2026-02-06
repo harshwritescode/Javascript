@@ -1,11 +1,10 @@
 var paragraph = new String('A paragraph is a self-contained unit of writing');
 
 
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [3, 4, 7];
 
-let common = arr1.filter(num => !arr2.includes(num));
-console.log(common);
+
+
+
 
 
 /*
@@ -300,5 +299,18 @@ let arr2 = [3, 4, 7];
 
 let common = arr1.filter(num => arr2.includes(num));
 console.log(common);  // [ 3, 4 ]
+
+
+🔹 What is indexOf()?
+indexOf() in JavaScript is used to find the position (index) of a value in an array or string.
+If the value is not found, it returns -1.
+
+string.indexOf(searchValue, fromIndex)
+
+let str = "javascript is awesome";
+
+console.log(str.indexOf("is"));   // 11
+console.log(str.indexOf("Java")); // -1 (case-sensitive)
+
 
 */

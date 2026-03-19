@@ -314,3 +314,21 @@ console.log(str.indexOf("Java")); // -1 (case-sensitive)
 
 
 */
+
+/*
+let url="https://sims.iitk.ac.in/ipr/commercialization";
+
+console.table([url.replace("ipr","harshd"),url.includes("sims"),url,url.split('/')])
+
+┌─────────┬──────────┬────┬───────────────────┬───────┬─────────────────────┬────────────────────────────────────────────────────┐
+│ (index) │ 0        │ 1  │ 2                 │ 3     │ 4                   │ Values                                             │
+├─────────┼──────────┼────┼───────────────────┼───────┼─────────────────────┼────────────────────────────────────────────────────┤
+│ 0       │          │    │                   │       │                     │ 'https://sims.iitk.ac.in/harshd/commercialization' │
+│ 1       │          │    │                   │       │                     │ true                                               │
+│ 2       │          │    │                   │       │                     │ 'https://sims.iitk.ac.in/ipr/commercialization'    │
+│ 3       │ 'https:' │ '' │ 'sims.iitk.ac.in' │ 'ipr' │ 'commercialization' │                                                    │
+└─────────┴──────────┴────┴───────────────────┴───────┴─────────────────────┴────────────────────────────────────────────────────┘
+
+  Note: Split method return a new array
+
+*/

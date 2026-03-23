@@ -28,8 +28,21 @@ const user ={
 // }
 // welcome() //undefined
 
-const welcome =  () => {
+const welcome = () => {
      let username="Harsh"
     console.log(this.username);     
 }
 welcome(); //undefined
+
+const addTwo= (num1,num2) =>{
+  return num1+num2;
+}
+console.log(addTwo(8,8)); //16 {} if you use curly braces then return keyword must be used
+ 
+const addThree= (num1,num2) => (num1+num2); //Implicit return  number //17 () if you use this bracket then return  keyword must not  be used
+console.log(addThree(8,9));
+
+const addObjectReturn= (num1,num2) => ({username:"harsh"}); //Implicit return objects () if you use this bracket then return  keyword must not  be used
+console.log(addObjectReturn(8,9)); // { username: 'harsh' }
+
+

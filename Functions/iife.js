@@ -45,3 +45,22 @@ welcome();
 ((username)=>{
     console.log(`welcome ${username}`);
 })("harsh"); //welcome harsh
+
+
+(()=>{
+   var username="Harsh Dixit";
+})()
+console.log(username);  //username is not defined you know already var is a global 
+
+/* 
+Short Summary
+IIFE isliye aaya kyunki:
+
+Global variables ka mess ho raha tha
+Private scope chahiye tha
+Code ko isolate karna tha
+Immediate execution chahiye tha
+
+
+*/
+

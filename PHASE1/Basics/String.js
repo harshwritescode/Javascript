@@ -52,7 +52,7 @@ f) console.log(gameName.toUpperCase());  //HARSH
 g) console.log(gameName.charAt(2));  //r  to find out the alphabet position in an string
 h)  var gameName= new String('Harsh');
     gameName.toLowerCase();
-    console.log((gameName));   //It always return new string and not changed because This string hoes into a stack memory not in heap
+    console.log((gameName));   //It always return new string and not changed because This string goes into a stack memory not in heap
 i) var gameName= new String('Harsh');
    gameName=gameName.toLowerCase();
    console.log((gameName));   harsh  // It change because you have give the reference of an string object  

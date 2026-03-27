@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- 
+🌳 DOM STRUCTURE (Top to Bottom)
+
+window
+ └── document
+     └── html
+         ├── head
+         │   ├── meta
+         │   ├── meta
+         │   ├── title
+         │   └── style
+         │
+         └── body
+             ├── h1#title
+             ├── p.text
+             ├── p.text
+             ├── div#container
+             │   ├── p.text
+             │   └── p.text
+             ├── input#inputField
+             ├── button#btn
+             ├── ul#list
+             │   ├── li
+             │   └── li
+             └── script
+
+📌 IMPORTANT NOTES:
+- window → top-level object (browser)
+- document → represents the entire HTML page
+- html → root element
+- head → contains metadata, title, CSS (not visible)
+- body → contains visible UI elements
+
+📌 NODE TYPES:
+✔ Element Node → h1, p, div, ul, li
+✔ Text Node → "DOM Manipulation 🚀"
+✔ Attribute Node → id, class, type
+
+📌 RELATIONSHIPS:
+- Parent → contains child elements
+- Child → inside a parent
+- Siblings → elements at same level
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Learning</title>
 
     <style>
+        /*
+        📌 CSS is also part of the DOM (style node)
+
+        body → parent selector
+        .box & .highlight → class selectors
+
+        These styles are applied to DOM elements
+        */
+
         body {
             font-family: Arial;
             padding: 20px;
@@ -22,27 +76,63 @@
         }
     </style>
 </head>
+
 <body>
 
+    <!-- 
+    📌 Heading Element
+    Parent: body
+    Child: Text Node
+    -->
     <h1 id="title">DOM Manipulation 🚀</h1>
 
+    <!-- 
+    📌 Paragraph Elements (Siblings)
+    Both are at the same level → siblings
+    -->
     <p class="text">This is paragraph 1</p>
     <p class="text">This is paragraph 2</p>
 
+    <!-- 
+    📌 Container Div
+    Parent: body
+    Children: two paragraph elements
+    -->
     <div id="container">
        <p class="text">This is paragraph container</p>
        <p class="text">This is paragraph container2</p>
     </div>
 
+    <!-- 
+    📌 Input Field
+    Attributes:
+    - type
+    - id
+    - placeholder
+    -->
     <input type="text" id="inputField" placeholder="Type something..." />
+
+    <!-- 
+    📌 Button Element
+    Used for event handling in JavaScript
+    -->
     <button id="btn">Click Me</button>
 
+    <!-- 
+    📌 List Structure
+    ul → parent
+    li → child elements
+    -->
     <ul id="list">
         <li>Item 1</li>
         <li>Item 2</li>
     </ul>
 
-    <!-- JS File Link -->
+    <!-- 
+    📌 Script Node
+    External JavaScript file is linked here
+    JS interacts with DOM from here
+    -->
     <script src="script.js"></script>
 
 </body>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:  #212121; color:#ffff">
+     
+</body>
+<script>
+    // How to  create a div element 
+    const div=document.createElement('div');
+    div.className="main"
+    div.setAttribute('title',"Generated Title")
+    div.style.width= "100px";
+    div.style.height= "100px";
+    div.style.border="10px";
+    div.style.backgroundColor="red";
+    div.innerText="Harsh Dixit"; // it will hoes inside in the div block issue is that firstly they will find out the div and then override it means 2 operation   
+    const addText=document.createTextNode("Harsh Dixit");
+    div.appendChild(addText);
+
+    document.body.appendChild(div)
+    console.log(div);
+
+
+    // const h1=document.createElement('h1');
+    // h1.id="myId"
+    // console.log(h1);
+    
+</script>
+</html>

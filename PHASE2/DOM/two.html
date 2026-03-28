@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:  #212121; color:#ffff">
+       <div class="parent">
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+      </div>
+</body>
+<script>
+       //Select parent element and find out the values
+       const parent=document.querySelector('.parent');
+    //    console.log(parent);
+       //find out how many children in this container
+    //    console.log(parent.children); //HTMLCollection(4) [div.day, div.day, div.day, div.day]
+    //    console.log(parent.children[0].innerHTML);  // Monday
+       
+       //foreach loop not run but classic loop should be run
+    //    for(let i=0;i<parent.children.length;i++)
+    //    {
+    //           console.log(parent.children[i].innerHTML);
+    //    }
+
+     //  parent.children[0].style.color = "Green";
+
+       //  we are move from parent to child
+      // console.log(parent.firstElementChild); //  <div class="day">Monday</div>
+      // console.log(parent.lastElementChild); //   <div class="day">Thursday</div>
+
+       const Day1=document.querySelector('.day');
+    //    console.log(Day1.innerHTML); //Monday
+    //    console.log(Day1.parentElement.innerHTML);
+       /*   
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+      
+       */
+    //    console.log(Day1.nextElementSibling.innerHTML); //Tuesday
+
+       console.log("NODES",parent.childNodes); 
+       /* NodeList(9) [text, div.day, text, div.day, text, div.day, text, div.day, text]
+    */
+       
+       
+
+       
+</script>
+</html>

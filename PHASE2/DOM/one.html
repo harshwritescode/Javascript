@@ -133,7 +133,73 @@ window
     External JavaScript file is linked here
     JS interacts with DOM from here
     -->
-    <script src="script.js"></script>
+    <script>
+          // For id Manipulation
+            const value=document.getElementById('title');
+            console.log(value);
+            const newvalue=value.setAttribute('class','my-intutition');
+            console.log(newvalue);
+             value.style.backgroundColor="red";
+            
+          // For class Manipulation
+             const element=document.getElementsByClassName('text');
+             console.log(element.length);  // it give us length of 4 in all documents whose element==4 they return the whole not length of text
+             console.log(element); // HTMLCollection(4) [p.text, p.text, p.text, p.text]
+            
+             // if we find the first text element so how we do that
+               const newusingleelement=document.getElementsByClassName('text')[0];
+               console.log(newusingleelement);  // <p class="text">This is paragraph container</p>
+             // second method using query selector
+               const getfirstQuery = document.querySelector('.text');
+               console.log(getfirstQuery);  //<p class="text">This is paragraph container</p>
+             // all values  
+               const getAllQuery = document.querySelectorAll('.text');
+               console.log(getAllQuery);   //NodeList(4) [p.text, p.text, p.text, p.text]
+               const arrayvalues=Array.from(getAllQuery);
+               console.log(arrayvalues);  //(4) [p.text, p.text, p.text, p.text]
+               console.log(arrayvalues[0]);  // <p class="text">This is paragraph 1 </p>
+               
+               
+
+     /*  Note: HTMLList and NodeList both Output are same 
+       What is the difference between that ??  
+           
+       
+| Feature       | NodeList             | HTMLCollection             |
+| ------------- | -------------------- | -------------------------- |
+| Return by     | `querySelectorAll()` | `getElementsByClassName()` |
+| Type          | Static (fix)         | Live (auto update)         |
+| Array methods | ❌ direct nahi        | ❌                          |
+| forEach       | ✅ supported          | ❌                          |
+
+
+   NodeList (Static)  --   If we add in the DOM "".text" then list will not be updated
+   HTMLCollection (Live) -- If we add in the DOM "".text" then list will  be updated
+
+   How to accessed
+    1)console.log(getAllQuery[0]); // first element
+    2)getAllQuery.forEach((el) => {
+     console.log(el.innerText);
+    });
+
+   */
+    const listElement = document.querySelectorAll('#list li')
+    console.log(listElement);
+    // const changeBorder= listElement[0].style.backgroundColor ="blue";
+    // console.log(changeBorder);
+
+    listElement.forEach((listitem)=>{
+        listitem.style.backgroundColor="green";
+    }); // both are green
+    
+    
+            
+               
+
+             
+
+
+    </script>
 
 </body>
 </html>

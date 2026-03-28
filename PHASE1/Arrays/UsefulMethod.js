@@ -77,6 +77,14 @@ console.log(Array.isArray("Harsh"));  //false
 console.log(Array.from("Harsh")); // [ 'H', 'a', 'r', 's', 'h' ]
 console.log(Array.from({name:"Harsh"})); // []  Interesting
 
+const obj = { name: "Harsh" };
+
+Object.keys(obj);   // ['name']
+Object.values(obj); // ['Harsh']
+Object.entries(obj);// [['name','Harsh']]
+
+
+
 let score1=100;
 let score2=100;
 let score3=100;

@@ -51,6 +51,17 @@ btn.style.cursor = "pointer";
 
 // add to body
 document.body.appendChild(btn);
+
+
+const updateBtn = document.createElement('button');
+updateBtn.innerText = "Update Div";
+
+updateBtn.addEventListener('click', () => {
+    div.textContent = "Updated by Button 😎";
+    div.style.backgroundColor = "blue";
+});
+
+document.body.appendChild(updateBtn);
     
 </script>
 </html>

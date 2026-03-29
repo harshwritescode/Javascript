@@ -25,9 +25,18 @@
     console.log(div);
 
 
-    // const h1=document.createElement('h1');
-    // h1.id="myId"
-    // console.log(h1);
+    const h1=document.createElement('h1');
+    h1.id="myId"
+    h1.setAttribute('Myown','Generated class'); //space is not allowed for the key
+    h1.style.width="100px";
+    h1.style.height="100px";
+    h1.style.border="20px";
+    h1.style.backgroundColor="green";
+    const values=document.createTextNode("This is our created heading own");
+    h1.appendChild(values);
+
+    document.body.appendChild(h1);
+    console.log(h1);
     
 </script>
 </html>

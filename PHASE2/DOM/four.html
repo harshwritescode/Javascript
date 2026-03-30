@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced DOM Practice</title>
+</head>
+
+<body style="background:#121212; color:white; font-family:sans-serif">
+
+<h1>🚀 Advanced JS Practice</h1>
+
+<!-- Input -->
+<input type="text" id="taskInput" placeholder="Enter task..." />
+<button id="addBtn">Add Task</button>
+
+<!-- Search -->
+<br><br>
+<input type="text" id="searchInput" placeholder="Search task..." />
+
+<!-- List -->
+<ul id="taskList"></ul>
+
+<!-- Toggle Theme -->
+<button id="toggleTheme">🌙 Toggle Theme</button>
+
+<script>
+/* =========================
+   SELECTORS
+========================= */
+const input = document.getElementById("taskInput");
+const addBtn = document.getElementById("addBtn");
+const list = document.getElementById("taskList");
+const searchInput = document.getElementById("searchInput");
+
+/* =========================
+   LOCAL STORAGE FUNCTIONS
+========================= */
+function saveTasks() {
+  const tasks = [];
+  document.querySelectorAll("li span").forEach(item => {
+    tasks.push(item.innerText);
+  });
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach(task => createTask(task));
+}
+
+/* =========================
+   CREATE TASK FUNCTION
+========================= */
+function createTask(text) {
+  const li = document.createElement("li");
+
+  li.innerHTML = `
+    <span>${text}</span>
+    <button class="edit">✏️</button>
+    <button class="delete">❌</button>
+  `;
+
+  list.appendChild(li);
+}
+
+/* =========================
+   ADD TASK
+========================= */
+addBtn.addEventListener("click", () => {
+  if (input.value.trim() === "") return;
+
+  createTask(input.value);
+  input.value = "";
+  saveTasks();
+});
+
+/* =========================
+   EVENT DELEGATION (ADVANCED 🔥)
+========================= */
+list.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    e.target.parentElement.remove();
+    saveTasks();
+  }
+
+  if (e.target.classList.contains("edit")) {
+    const span = e.target.parentElement.querySelector("span");
+    const newText = prompt("Update task:", span.innerText);
+    if (newText) {
+      span.innerText = newText;
+      saveTasks();
+    }
+  }
+});
+
+/* =========================
+   DEBOUNCE FUNCTION (ADVANCED 🔥)
+========================= */
+function debounce(func, delay) {
+  let timer;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, arguments);
+    }, delay);
+  };
+}
+
+/* =========================
+   SEARCH WITH DEBOUNCE
+========================= */
+searchInput.addEventListener("input", debounce((e) => {
+  const value = e.target.value.toLowerCase();
+
+  document.querySelectorAll("li").forEach(li => {
+    const text = li.innerText.toLowerCase();
+    li.style.display = text.includes(value) ? "block" : "none";
+  });
+}, 500));
+
+/* =========================
+   DARK MODE TOGGLE
+========================= */
+const toggleBtn = document.getElementById("toggleTheme");
+
+toggleBtn.addEventListener("click", () => {
+  if (document.body.style.background === "white") {
+    document.body.style.background = "#121212";
+    document.body.style.color = "white";
+  } else {
+    document.body.style.background = "white";
+    document.body.style.color = "black";
+  }
+});
+
+/* =========================
+   KEYBOARD EVENT
+========================= */
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addBtn.click();
+  }
+});
+
+/* =========================
+   LOAD DATA ON START
+========================= */
+loadTasks();
+
+</script>
+
+</body>
+</html>

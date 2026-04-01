@@ -12,7 +12,7 @@
   
 </body>
 <script>
-
+//--------------------------------------ADD the new Element-------------------------
 //Problem is that every time it traverse the whole tree
   function addLanguage(langName){
       const li=document.createElement('li');
@@ -33,6 +33,31 @@
   addoptimizedLanguage('C');
   addoptimizedLanguage('C++');
    addoptimizedLanguage('PhP');
+
+
+function addDivElement(newDivElement){
+   const div=document.createElement('div');
+   //div.innerHTML=`${newDivElement}`;
+   div.appendChild(document.createTextNode(`${newDivElement}`))
+   document.querySelector('body').appendChild(div);
+}
+addDivElement('NEW DIV BLOCK')
+
+//--------------------------------Edit the new element
+const SecondLang=document.querySelector("li:nth-child(2)");
+// //SecondLang.innerHTML="Mojo";
+// const newLi=SecondLang.appendChild(document.createTextNode('MOJO'));
+// SecondLang.replaceWith(newLi);
+
+
+const firstChild=document.querySelector('li:nth-child(1)');
+firstChild.outerHTML='<li>Typescript</li>';
+
+
+//  ------------------------------ remove the element
+const lastChild=document.querySelector('li:last-child');
+lastChild.remove();
+
 </script>
 <script>
 

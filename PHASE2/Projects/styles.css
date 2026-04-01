@@ -1,0 +1,46 @@
+/* Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.canvas {
+  margin-top: 100px;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 30px;
+  color: black;
+}
+
+/* Buttons (color boxes) */
+.button {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Individual Colors */
+#grey {
+  background-color: grey;
+}
+
+#white {
+  background-color: white;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#yellow {
+  background-color: yellow;
+}

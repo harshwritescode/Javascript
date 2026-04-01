@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body style="background-color: black; color:White">
+  <div class="canvas">
+    <h1>Color Theme Switcher</h1>
+    <span class="button" id="grey"></span>
+    <span class="button" id="white"></span>
+    <span class="button" id="blue"></span>
+    <span class="button" id="yellow"></span>
+
+  </div>
+    
+</body>
+
+<script>
+    const values=document.querySelectorAll('.button');
+    const body=document.querySelector('body');
+
+    //events- (click )
+    values.forEach((items)=>{
+        // console.log(items); 
+        items.addEventListener('click',(e)=>{
+        const color = e.target.id; // button ka id
+
+        if (color === 'grey') {
+            body.style.backgroundColor = 'grey';
+        }
+        if (color === 'white') {
+            body.style.backgroundColor = 'white';
+        }
+        if (color === 'blue') {
+            body.style.backgroundColor = 'blue';
+        }
+        if (color === 'yellow') {
+            body.style.backgroundColor = 'yellow';
+        }
+
+       
+        }) 
+    })
+    
+
+    
+   
+</script>
+</html>

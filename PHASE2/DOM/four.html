@@ -2,206 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Advanced DOM Practice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoM 4 Manipulation</title>
 </head>
-
-<body style="background:#121212; color:white; font-family:sans-serif">
-
-<h1>🚀 Advanced JS Practice</h1>
-
-<!-- Input for adding tasks -->
-<input type="text" id="taskInput" placeholder="Enter task..." />
-<button id="addBtn">Add Task</button>
-
-<!-- Search input -->
-<br><br>
-<input type="text" id="searchInput" placeholder="Search task..." />
-
-<!-- Task List -->
-<ul id="taskList"></ul>
-
-<!-- Theme Toggle -->
-<button id="toggleTheme">🌙 Toggle Theme</button>
-
+<body style="background-color:black; color:white;">
+      <ul class="language">
+          <li>Javascript</li>
+      </ul>
+  
+</body>
 <script>
 
-/* =========================================================
-   SELECTING ELEMENTS (DOM ACCESS)
-========================================================= */
-const input = document.getElementById("taskInput"); // input field
-const addBtn = document.getElementById("addBtn"); // add button
-const list = document.getElementById("taskList"); // ul list
-const searchInput = document.getElementById("searchInput"); // search field
-
-
-/* =========================================================
-   LOCAL STORAGE (DATA PERSISTENCE)
-   - Stores tasks even after page reload
-========================================================= */
-function saveTasks() {
-  const tasks = [];
-
-  // Loop through all list items and extract text
-  document.querySelectorAll("li span").forEach(item => {
-    tasks.push(item.innerText);
-  });
-
-  // Store in browser local storage
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-function loadTasks() {
-  // Get data from localStorage (if exists)
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-  // Re-create tasks in UI
-  tasks.forEach(task => createTask(task));
-}
-
-
-/* =========================================================
-   CREATE TASK ELEMENT
-   - Dynamically creates list items
-========================================================= */
-function createTask(text) {
-
-  const li = document.createElement("li");
-
-  // Using dataset to store extra info (advanced concept)
-  li.dataset.createdAt = new Date().toISOString();
-
-  // Inner HTML structure
-  li.innerHTML = `
-    <span>${text}</span>
-    <button class="edit">✏️</button>
-    <button class="delete">❌</button>
-  `;
-
-  list.appendChild(li);
-}
-
-
-/* =========================================================
-   ADD TASK EVENT
-   - Triggered when user clicks "Add Task"
-========================================================= */
-addBtn.addEventListener("click", () => {
-
-  // Prevent empty input
-  if (input.value.trim() === "") return;
-
-  createTask(input.value); // create UI
-  input.value = ""; // clear input
-  saveTasks(); // save in storage
-});
-
-
-/* =========================================================
-   EVENT DELEGATION (VERY IMPORTANT 🔥)
-   - Instead of adding event to each button,
-     we attach one event to parent (ul)
-========================================================= */
-list.addEventListener("click", (e) => {
-
-  // DELETE TASK
-  if (e.target.classList.contains("delete")) {
-    e.stopPropagation(); // prevent bubbling (advanced)
-    e.target.parentElement.remove();
-    saveTasks();
+//Problem is that every time it traverse the whole tree
+  function addLanguage(langName){
+      const li=document.createElement('li');
+      li.innerHTML=`${langName}`;
+      document.querySelector('.language').appendChild(li);
   }
+  addLanguage('Python')
+  addLanguage('TypeScript')
+  addLanguage('Java')
 
-  // EDIT TASK
-  if (e.target.classList.contains("edit")) {
-    e.stopPropagation();
 
-    const span = e.target.parentElement.querySelector("span");
-
-    // Prompt user for new value
-    const newText = prompt("Update task:", span.innerText);
-
-    if (newText) {
-      span.innerText = newText;
-      saveTasks();
-    }
+  //This is Optimized approach to create a element
+  function addoptimizedLanguage(langName){
+     const li=document.createElement('li');
+     li.appendChild(document.createTextNode(`${langName}`))
+     document.querySelector('.language').appendChild(li);
   }
-});
-
-
-/* =========================================================
-   DEBOUNCE FUNCTION
-   - Limits function execution
-   - Useful in search, API calls
-========================================================= */
-function debounce(func, delay) {
-  let timer;
-
-  return function () {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      func.apply(this, arguments);
-    }, delay);
-  };
-}
-
-
-/* =========================================================
-   SEARCH FUNCTIONALITY (WITH DEBOUNCE)
-========================================================= */
-searchInput.addEventListener("input", debounce((e) => {
-
-  const value = e.target.value.toLowerCase();
-
-  document.querySelectorAll("li").forEach(li => {
-
-    const text = li.innerText.toLowerCase();
-
-    // Show/hide based on match
-    li.style.display = text.includes(value) ? "block" : "none";
-  });
-
-}, 500));
-
-
-/* =========================================================
-   DARK MODE TOGGLE
-   - Switch between light & dark theme
-========================================================= */
-const toggleBtn = document.getElementById("toggleTheme");
-
-toggleBtn.addEventListener("click", () => {
-
-  if (document.body.style.background === "white") {
-    document.body.style.background = "#121212";
-    document.body.style.color = "white";
-  } else {
-    document.body.style.background = "white";
-    document.body.style.color = "black";
-  }
-
-});
-
-
-/* =========================================================
-   KEYBOARD EVENTS
-   - Press Enter to add task
-========================================================= */
-input.addEventListener("keydown", (e) => {
-
-  if (e.key === "Enter") {
-    addBtn.click(); // simulate click
-  }
-
-});
-
-
-/* =========================================================
-   INITIAL LOAD
-   - Load tasks when page opens
-========================================================= */
-loadTasks();
+  addoptimizedLanguage('C');
+  addoptimizedLanguage('C++');
+   addoptimizedLanguage('PhP');
+</script>
+<script>
 
 </script>
 
-</body>
 </html>

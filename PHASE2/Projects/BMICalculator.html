@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body style="background-color: black; color:White">
+    <div class="container">
+        <h1>BMI Calcualtor</h1>
+        <form action="">
+            <p><label for="">Height in CM: </label>
+              <input type="text" id="height"></p>
+            </p>
+            <p><label for="">Weight in KG: </label>
+              <input type="text" id="weight"></p>
+            </p>
+            <button>Calculate</button>
+            <div class="results"></div>
+            <div class="weight-guide">
+                <h3>BMI Weight Guide</h3>
+                <p>Under Weight = Less than 18.6</p>
+                <p>Normal Range = 18.6 and 24.9</p>
+                <p>OverWeight = Greater than 24.9</p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+const form=document.querySelector('form');
+form.addEventListener('submit',(e)=>{
+     e.preventDefault();
+     const height=parseInt(document.querySelector('#height').value)
+     console.log(height);
+     const weight=parseInt(document.querySelector('#weight').value)
+     console.log(weight);
+     const results=document.querySelector('.results')
+
+     if(height==='' || height <0 || isNaN(height)){
+        results.innerHTML= 'Please Give a valid height';
+     }
+     results.innerHTML= `${height}`
+      if(weight==='' || weight <0 || isNaN(weight)){
+        results.innerHTML= 'Please Give a valid weight';
+     }
+     const BMI=(weight/((height*height)/10000)).toFixed(2);
+     console.log(BMI);
+     
+      results.innerHTML=`<span>${BMI}</span>`;
+
+     
+})
+
+
+
+</script>
+</html>

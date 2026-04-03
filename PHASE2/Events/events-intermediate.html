@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events Intermediate</title>
+</head>
+<body>
+
+<h2>Intermediate Events</h2>
+
+<div id="parent" style="padding:20px; background:lightgray;">
+    Parent
+    <button id="child">Child Button</button>
+</div>
+
+<form id="form">
+    <input type="text" placeholder="Name" required>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+
+    // EVENT BUBBLING
+    document.getElementById("parent").addEventListener("click", () => {
+        console.log("Parent clicked");
+    });
+
+    document.getElementById("child").addEventListener("click", () => {
+        console.log("Child clicked");
+    });
+
+    // STOP PROPAGATION
+    document.getElementById("child").addEventListener("click", (e) => {
+        e.stopPropagation();
+        console.log("Stopped bubbling");
+    });
+
+    // FORM SUBMIT
+    document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Form submitted!");
+    });
+
+    // EVENT OBJECT
+    document.getElementById("child").addEventListener("click", (e) => {
+        console.log("Target:", e.target);
+        console.log("Type:", e.type);
+    });
+
+</script>
+
+</body>
+</html>

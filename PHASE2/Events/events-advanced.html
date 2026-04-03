@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events Advanced</title>
+</head>
+<body>
+
+<h2>Advanced Events</h2>
+
+<ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+
+<button id="add">Add Item</button>
+
+<script>
+
+    const list = document.getElementById("list");
+    const addBtn = document.getElementById("add");
+
+    // EVENT DELEGATION (Important 🔥)
+    list.addEventListener("click", (e) => {
+        if (e.target.tagName === "LI") {
+            console.log("Clicked:", e.target.textContent);
+        }
+    });
+
+    // Dynamically add items
+    addBtn.addEventListener("click", () => {
+        const li = document.createElement("li");
+        li.textContent = "New Item";
+        list.appendChild(li);
+    });
+
+    // REMOVE EVENT LISTENER
+    function sayHello() {
+        alert("Hello");
+    }
+
+    addBtn.addEventListener("dblclick", sayHello);
+
+    setTimeout(() => {
+        addBtn.removeEventListener("dblclick", sayHello);
+        console.log("Removed dblclick event");
+    }, 5000);
+
+    // EVENT CAPTURING
+    document.body.addEventListener("click", () => {
+        console.log("Body capturing");
+    }, true); // true = capturing phase
+
+</script>
+
+</body>
+</html>

@@ -2,172 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript Events Practice</title>
-    <style>
-        body {
-            font-family: Arial;
-            padding: 20px;
-        }
-        button {
-            margin: 10px;
-            padding: 10px;
-        }
-        #box {
-            width: 200px;
-            height: 200px;
-            background-color: lightblue;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Events Basic</title>
 </head>
 <body>
 
-    <h1>JavaScript Events Demo</h1>
+<h2>Basic Events</h2>
 
-    <!-- Click Event -->
-    <button id="clickBtn">Click Me</button>
+<button id="btn">Click Me</button>
+<input type="text" id="input" placeholder="Type here">
 
-    <!-- Mouse Events -->
-    <div id="box">Hover over me</div>
+<script>
+    // CLICK EVENT
+    const btn = document.getElementById("btn");
 
-    <!-- Input Event -->
-    <input type="text" id="inputField" placeholder="Type something..." />
+    btn.addEventListener("click", () => {
+        alert("Button clicked!");
+    });
 
-    <!-- Form Submit -->
-    <form id="myForm">
-        <input type="text" placeholder="Enter name" required />
-        <button type="submit">Submit</button>
-    </form>
+    // INPUT EVENT
+    const input = document.getElementById("input");
 
-    <script>
-        // =========================
-        // 1. CLICK EVENT
-        // =========================
-        const clickBtn = document.getElementById("clickBtn");
+    input.addEventListener("input", (e) => {
+        console.log("Value:", e.target.value);
+    });
 
-        clickBtn.addEventListener("click", function () {
-            // Runs when button is clicked
-            alert("Button Clicked!");
-        });
+    // KEYBOARD EVENT
+    document.addEventListener("keydown", (e) => {
+        console.log("Key:", e.key);
+    });
 
+    // MOUSE EVENT
+    btn.addEventListener("mouseenter", () => {
+        console.log("Mouse entered button");
+    });
 
-        // =========================
-        // 2. MOUSE EVENTS
-        // =========================
-        const box = document.getElementById("box");
+    btn.addEventListener("mouseleave", () => {
+        console.log("Mouse left button");
+    });
 
-        // Mouse Enter
-        box.addEventListener("mouseenter", function () {
-            box.style.backgroundColor = "orange";
-            console.log("Mouse entered");
-        });
-
-        // Mouse Leave
-        box.addEventListener("mouseleave", function () {
-            box.style.backgroundColor = "lightblue";
-            console.log("Mouse left");
-        });
-
-
-        // =========================
-        // 3. INPUT EVENT
-        // =========================
-        const inputField = document.getElementById("inputField");
-
-        inputField.addEventListener("input", function (e) {
-            // e.target.value gives current input value
-            console.log("Typing:", e.target.value);
-        });
-
-
-        // =========================
-        // 4. FORM SUBMIT EVENT
-        // =========================
-        const form = document.getElementById("myForm");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault(); // Prevent page reload
-            alert("Form Submitted!");
-        });
-
-
-        // =========================
-        // 5. KEYBOARD EVENTS
-        // =========================
-        document.addEventListener("keydown", function (e) {
-            console.log("Key Pressed:", e.key);
-        });
-
-
-        // =========================
-        // 6. EVENT OBJECT
-        // =========================
-        clickBtn.addEventListener("click", function (e) {
-            console.log("Event Type:", e.type); // click
-            console.log("Target Element:", e.target); // button
-        });
-
-
-        // =========================
-        // 7. EVENT BUBBLING
-        // =========================
-        document.body.addEventListener("click", function () {
-            console.log("Body clicked (Bubbling)");
-        });
-
-        clickBtn.addEventListener("click", function () {
-            console.log("Button clicked");
-        });
-
-        // Click button → Button → Body (bubbling)
-
-
-        // =========================
-        // 8. STOP PROPAGATION
-        // =========================
-        clickBtn.addEventListener("click", function (e) {
-            e.stopPropagation(); // Stops bubbling
-            console.log("Propagation stopped");
-        });
-
-
-        // =========================
-        // 9. EVENT DELEGATION
-        // =========================
-        const ul = document.createElement("ul");
-
-        for (let i = 1; i <= 3; i++) {
-            const li = document.createElement("li");
-            li.textContent = "Item " + i;
-            ul.appendChild(li);
-        }
-
-        document.body.appendChild(ul);
-
-        // Single listener for all li items
-        ul.addEventListener("click", function (e) {
-            if (e.target.tagName === "LI") {
-                console.log("Clicked:", e.target.textContent);
-            }
-        });
-
-
-        // =========================
-        // 10. REMOVE EVENT LISTENER
-        // =========================
-        function sayHello() {
-            alert("Hello!");
-        }
-
-        clickBtn.addEventListener("dblclick", sayHello);
-
-        // Remove after 5 seconds
-        setTimeout(() => {
-            clickBtn.removeEventListener("dblclick", sayHello);
-            console.log("Double click removed");
-        }, 5000);
-
-    </script>
+</script>
 
 </body>
 </html>

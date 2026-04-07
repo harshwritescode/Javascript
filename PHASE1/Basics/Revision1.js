@@ -30,9 +30,10 @@ let Users={
 // }
 
 
+ console.log( updatedvalue.substring(0,3));  //100
+ console.log(updatedvalue); // 100.678
  
-
-
+ 
 
 /*
   2)charat()  -- Positive
@@ -61,10 +62,59 @@ let Users={
 
   8)match() match primarily refers to the String.prototype.match() method, which is used to search a string for a specific pattern defined by a Regular Expression (Regex).
   //this return array for matched value 
+  //always work in string
   console.log(updatedvalue.match(/\d+\.\d+/)); // [ '100.678', index: 0, input: '100.678', groups: undefined ]
 
+  9)normalize() Removes invisible differences 
+  let a = "é";
+  let b = "é";
+  console.log(a===b); //false
+  console.log(a.normalize() === b.normalize()); // true 
+
+  10) repeat(count) --
+  count: An integer representing the number of times to repeat the string.
+  If count is 0, it returns an empty string.
+ If count is a decimal, it is rounded down to the nearest integer (e.g., 3.8 becomes 3).
+  If count is negative or Infinity, the method throws a RangeError 
+   console.log((updatedvalue+" ").repeat(2)); // 100.678 100.678 
+
+  11)replace()  method is used to replace a part of a string with a new value. It returns a new string and does not modify the original one, as strings in
+  js are immutable
+  console.log(updatedvalue.replace('1','2')); // 200.678
+ console.log(updatedvalue); //100.678
+
+ 12)search()
+ | Feature | `search()`    | `match()`    |
+| ------- | ------------- | ------------ |
+| Return  | index         | array        |
+| Use     | position find | data extract |
+
+ console.log(updatedvalue.search(/\d+\.\d+/)); //0 return the matching start index
+
+ 13)slice () vs splice()
+ | Feature         | `slice()` | `splice()`       |
+| --------------- | --------- | ---------------- |
+| Change original | ❌ No      | ✅ Yes            |
+| Use             | copy part | modify array     |
+| Return          | new array | removed elements |
+
+ console.log(updatedvalue.slice(0,2)); //10
+ console.log(updatedvalue); //100.678
+
+ splice() does not use in string because string are immutable
+
+14) split() split() method is a standard String function used to divide a string into an ordered list of substrings. These substrings are then placed into a new array and returned.
+ console.log(updatedvalue.split('.')); //[ '100', '678' ]
+ console.log(updatedvalue); //100.678
+
+ 15)substring() 
+  method in JavaScript extracts a portion of a string between two specified indices and returns it as a new string. It does not modify the original string.
+ console.log( updatedvalue.substring(0,3));  //100
+ console.log(updatedvalue); // 100.678
+ 
+
+
 */
-  
 
 /*
 Note: 

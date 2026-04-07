@@ -2,7 +2,7 @@
 
 //  x = 10; // Error 
 // function add(a, a) {} // Error
-// let public = 5; // Error
+// let public = 5; // Error  // Unexpected strict mode reserved word
 
 
 // 1. Primitive Datatypes  (Stack storage for copying the value)

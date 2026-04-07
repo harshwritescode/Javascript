@@ -6,6 +6,7 @@ const balance = new Number(100.678);
 /*
 a)console.table([score, balance.valueOf()]);
 
+
 ┌─────────┬────────┐
 │ (index) │ Values │
 ├─────────┼────────┤

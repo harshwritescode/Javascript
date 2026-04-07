@@ -28,15 +28,15 @@ const arr=[1,2,3,4,5];
 // }
 
 //Maps In js
-const map = new Map();
+// const map = new Map();
 
-for (const value of arr) {
-   map.set(value, value);   // key = value, value = value
-}
+// for (const value of arr) {
+//    map.set(value, value);   // key = value, value = value
+// }
 
-for (const element of map) {
-   console.log(element);   // [key, value]
-}
+// for (const element of map) {
+//    console.log(element);   // [key, value]
+// }
 
 
 // const myobject ={
@@ -44,8 +44,30 @@ for (const element of map) {
 //    game2:"GTA"        /// object are not iterable 
 // };
 
-for (const [key,value] of myobject) {
-    console.log(`key and value : `,key,value);
-}
+// for (const [key,value] of myobject) {
+//     console.log(`key and value : `,key,value);
+// }
 
 // NOTE: forof loop iterable in map not in objects
+
+
+
+let Users={
+    name:"Harsh Dixit",
+    age:26,
+    Role:"Senior Project Associate"
+};
+// console.log(Users); //{ name: 'Harsh Dixit', age: 26, Role: 'Senior Project Associate' }
+//console.log(JSON.stringify(Users));// {"name":"Harsh Dixit","age":26,"Role":"Senior Project Associate"}
+//console.log(Object.values(Users)); // [ 'Harsh Dixit', 26, 'Senior Project Associate' ]
+//console.log(Object.keys(Users)); //[ 'name', 'age', 'Role' ]
+//console.log(Object.entries(Users));
+/*
+   [
+  [ 'name', 'Harsh Dixit' ],
+  [ 'age', 26 ],
+  [ 'Role', 'Senior Project Associate' ]
+]
+*/
+
+

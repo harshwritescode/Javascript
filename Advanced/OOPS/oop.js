@@ -44,14 +44,18 @@ function User(username,logincount,isloogedin){
     this.logincount=logincount;
     this.isloogedin=isloogedin;
 
+    this.gretting=function(){
+        console.log(`Welcome ${this.username}`);     
+    }
+
     return this;
 }
 
-// const UserOne= new User("Harsh",9,true);
+const UserOne= new User("Harsh",9,true);
 // const UserTwo= new User("Krishna",19,true);  // Override ho jayega
-// console.log(UserOne); // User { username: 'Harsh', logincount: 9, isloogedin: true }
+console.log(UserOne); // User { username: 'Harsh', logincount: 9, isloogedin: true ,gretting: [Function (anonymous)]}
 // console.log(UserTwo); // User { username: 'Krishna', logincount: 19, isloogedin: true }
-
+UserOne.gretting();  //Welcome Harsh
 
 
 

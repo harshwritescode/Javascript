@@ -97,10 +97,10 @@ createuser.prototype.userdetails =function(){
     console.log(`Welcome ${this.username} your score is ${this.score}`);
     
 }
-const userone= createuser("Harsh",90);
-const usertwo= createuser("Harsh",190);
+// const userone= createuser("Harsh",90);
+// const usertwo= createuser("Harsh",190);
 
-userone.userdetails();  // TypeError: Cannot read properties of undefined (reading 'userdetails') 
+// userone.userdetails();  // TypeError: Cannot read properties of undefined (reading 'userdetails') 
 
 
 /*
@@ -130,3 +130,7 @@ const usertwo = new createuser("Harsh", 190);
 
 userone.userdetails();
 */
+const userone = new createuser("Harsh", 90);
+const usertwo = new createuser("Harsh", 190);
+
+userone.userdetails();

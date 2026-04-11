@@ -37,11 +37,96 @@
 
    Diagram:
 
-           null
+           null                                     
              ↑
       Object.prototype
              ↑
       Array.prototype
              ↑
            arr = [1,2,3]
+
+/*
+🔹 STRING PROTOTYPE CHAIN
+
+         null
+           ↑
+   Object.prototype
+           ↑
+   String.prototype
+           ↑
+   "Harsh"   // string value (auto boxed to String object)
+*/
+
+
+/*
+🔹 FUNCTION PROTOTYPE CHAIN
+
+         null
+           ↑
+   Object.prototype
+           ↑
+   Function.prototype
+           ↑
+   getUser() { }   // function object
+
+*/
+// -------------------------------------------------------------------------------------------------------------------------- 
+function multiplyby5(num){
+    return num*5;
+}
+multiplyby5.power=2;
+ 
+// console.log(multiplyby5(5));   //25
+// console.log(multiplyby5.power); //2
+// console.log(multiplyby5.prototype); // {} Empty Parenthesis 
+
+// Function behave same as function as well as object 
+
+// ------------------------------------------------------------------------------------------------------------------------------- 
+
+function createuser(username,score){
+    this.username=username;
+    this.score=score;
+}
+
+createuser.prototype.increment = function (){
+    this.score++;
+}
+
+createuser.prototype.userdetails =function(){
+    console.log(`Welcome ${this.username} your score is ${this.score}`);
+    
+}
+const userone= createuser("Harsh",90);
+const usertwo= createuser("Harsh",190);
+
+userone.userdetails();  // TypeError: Cannot read properties of undefined (reading 'userdetails') 
+
+
+/*
+ Correct Reason :
+
+- The error occurs because we did NOT use the "new" keyword while creating the object.
+- Without "new", the function does NOT create a proper object instance.
+- Also, the prototype link is NOT set between the object and createuser.prototype.
+
+What actually happens:
+
+- createuser("Harsh", 90) returns undefined (if nothing is explicitly returned)
+- So, userone becomes undefined
+- That’s why userone.userdetails() throws an error
+
+ Why "new" is important:
+
+- It creates a new object
+- Sets "this" to that object
+- Links the object to createuser.prototype
+- Returns the object automatically
+
+ Correct way:
+
+const userone = new createuser("Harsh", 90);
+const usertwo = new createuser("Harsh", 190);
+
+userone.userdetails();
 */

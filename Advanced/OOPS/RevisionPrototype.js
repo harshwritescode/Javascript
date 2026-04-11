@@ -26,5 +26,5 @@ Array.prototype.heyHarsh= function(){
 heropower.harsh();  //Harsh is present in all objects
 myheros.harsh();  //Harsh is present in all objects
 
-heropower.heyHarsh();  //heropower.heyHarsh is not a function
+//heropower.heyHarsh();  //heropower.heyHarsh is not a function
 myheros.heyHarsh();

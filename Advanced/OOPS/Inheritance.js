@@ -4,7 +4,7 @@ class User{
      }
 
      logMe(){
-        console.log(`Username is ${this.username}`);
+        cconsole.log(`Username is ${this.username}`);
     }
 }
 

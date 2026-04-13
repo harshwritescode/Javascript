@@ -16,3 +16,23 @@ class User{
 
 const Userone=new User("dixitharsh248@gmal.com","abcd")
 console.log(Userone.password); //abcdharsh
+
+
+
+
+
+//Behind the Scene
+
+function User(email,password){
+    this._email=email;
+    this._password=password;
+
+    Object.defineProperty(this,'email',{
+        get: function (){
+        return this._email.toUpperCase()
+        },
+        set: function(){
+          this.email=value
+        }
+    })
+}
